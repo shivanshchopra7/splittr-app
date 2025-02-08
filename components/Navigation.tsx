@@ -8,7 +8,7 @@ export default function Navigation() {
       <Link href="/" className="flex items-center space-x-2">
         <svg
           viewBox="0 0 24 24"
-          className="h-6 w-6 fill-current"
+          className="h-8 w-8 fill-current"
           style={{ fill: '#6200EA' }}
         >
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -18,13 +18,13 @@ export default function Navigation() {
         </span>
       </Link>
 
-      <div className="flex items-center space-x-12">
+      <div className="flex items-center lg:space-x-12 text-center  ml-4">
         {/* Added new link for 'Your Groups' */}
         <Link
           href="/groups"
           className="text-gray-700 hover:text-gray-900 hover:underline"
         >
-          Your Groups
+          <span>Your Groups</span>
         </Link>
         <Link
           href="/group"

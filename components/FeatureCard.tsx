@@ -12,7 +12,9 @@ export default function FeatureCard({
   description,
 }: FeatureCardProps) {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md text-gray-900 text-center">
+    <>
+    <div className='px-10'>
+    <div className="py-4 px-2 bg-white rounded-lg shadow-md  text-gray-900 text-center">
       {' '}
       {/* Center text */}
       <div className="flex items-center justify-center mb-4">
@@ -21,5 +23,9 @@ export default function FeatureCard({
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p>{description}</p>
     </div>
+    </div>
+      
+    </>
+  
   );
 }

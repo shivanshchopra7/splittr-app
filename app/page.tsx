@@ -11,11 +11,11 @@ export default function LandingPage() {
       {/* Hero Section */}
       <Banner />
       {/* Features Section */}
-      <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">
-          Why use Split?
+      <div className="container mx-auto py-16 sm:px-6 lg:px-8 lg:py-24">
+        <h2 className="text-3xl underline underline-offset-2 font-bold mb-12 text-center text-gray-900">
+          Why use Splittr?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
             Icon={Users}
             title="Group expense tracking"
@@ -34,8 +34,8 @@ export default function LandingPage() {
         </div>
       </div>
       {/* Footer */}
-      <footer className="container mx-auto px-4 py-6 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
-        By using Split, you agree to our Terms of Service and Privacy Policy
+      <footer className="container  border-t-2  mx-auto px-4 py-6 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+        By using Splittr, you agree to our Terms of Service and Privacy Policy
       </footer>
     </div>
   );
