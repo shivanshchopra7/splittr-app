@@ -36,14 +36,11 @@ export default function Banner() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-        Whether it's a group trip or dinner,Splittr makes it easy
-        <br />to track shared expenses  and settle up in a single tap.
+          Whether it&apos;s a group trip or dinner, Splittr makes it easy
+          <br /> to track shared expenses and settle up in a single tap.
         </motion.p>
         <Link href="/group">
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Button className="bg-white text-purple-700 hover:bg-purple-800 hover:text-white text-lg px-6 py-6 rounded-xl font-semibold transition-all shadow-lg">
               Get Started 🚀
             </Button>
