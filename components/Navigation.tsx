@@ -18,7 +18,7 @@ export default function Navigation() {
         </span>
       </Link>
 
-      <div className="flex items-center lg:space-x-12 text-center  ml-4">
+      <div className="flex items-center lg:space-x-12 mr-4 text-center  ml-4">
         {/* Added new link for 'Your Groups' */}
         <Link
           href="/groups"
@@ -38,7 +38,10 @@ export default function Navigation() {
         >
           Add Expense
         </Link>
+        <div className='ml-4'>
         <UserButton />
+        </div>
+       
       </div>
     </nav>
   );
