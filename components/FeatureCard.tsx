@@ -14,7 +14,7 @@ export default function FeatureCard({
   return (
     <>
     <div className='px-10'>
-    <div className="py-4 px-2 bg-white rounded-lg shadow-md  text-gray-900 text-center">
+    <div className="py-8 px-4 bg-white rounded-lg shadow-md  text-gray-900 text-center">
       {' '}
       {/* Center text */}
       <div className="flex items-center justify-center mb-4">
