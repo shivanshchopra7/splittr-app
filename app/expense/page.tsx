@@ -156,140 +156,166 @@ export default function AddExpense() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8 max-w-2xl">
-      <h1 className="text-2xl font-bold mb-2">Add an expense</h1>
-      <p className="text-gray-600 mb-6">
-        Record your expenses and split them with your group.
-      </p>
+    <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 max-w-2xl">
+  <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-10 border border-gray-100">
+    <h1 className="text-3xl font-bold mb-2 text-gray-900">Add an Expense</h1>
+    <p className="text-gray-500 mb-8 text-sm">
+      Record your expenses and split them with your group members.
+    </p>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <Label
-            htmlFor="amount"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Amount
-          </Label>
-          <Input
-            id="amount"
-            type="number"
-            placeholder="₹0"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            required
-            className="w-full"
-          />
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Amount */}
+      <div>
+        <Label
+          htmlFor="amount"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Amount
+        </Label>
+        <Input
+          id="amount"
+          type="number"
+          placeholder="₹0"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          required
+          className="w-full focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        />
+      </div>
 
-        <div>
-          <Label
-            htmlFor="description"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Description
-          </Label>
-          <Input
-            id="description"
-            placeholder="What did you pay for?"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-            className="w-full"
-          />
-        </div>
+      {/* Description */}
+      <div>
+        <Label
+          htmlFor="description"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Description
+        </Label>
+        <Input
+          id="description"
+          placeholder="What did you pay for?"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+          className="w-full focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        />
+      </div>
 
-        <div>
-          <Label
-            htmlFor="group"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Group
-          </Label>
-          {organizations.length > 0 ? (
-            <Select onValueChange={handleGroupChange} value={group} required>
-              <SelectTrigger id="group" className="w-full">
-                <SelectValue placeholder="Select a group" />
-              </SelectTrigger>
-              <SelectContent>
-                {organizations.map((org) => (
-                  <SelectItem key={org.id} value={org.id}>
-                    {org.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          ) : (
-            <p className="text-sm text-gray-500">
-              No groups available. Please create or join a group first.
-            </p>
-          )}
-        </div>
-
-        <div>
-          <Label
-            htmlFor="splitPercentage"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Split Percentage
-          </Label>
-          <Input
-            id="splitPercentage"
-            type="number"
-            placeholder="Enter percentage to split"
-            value={splitPercentage}
-            onChange={(e) => setSplitPercentage(e.target.value)}
-            className="w-full"
-          />
-        </div>
-
-        <div>
-          <Label
-            htmlFor="splitWith"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Split with
-          </Label>
-          <Select
-            onValueChange={(value) => {
-              const selectedMember = members.find(
-                (member) => member.id === value
-              );
-              if (selectedMember) {
-                if (
-                  splitWith.some((member) => member.id === selectedMember.id)
-                ) {
-                  setSplitWith(
-                    splitWith.filter(
-                      (member) => member.id !== selectedMember.id
-                    )
-                  );
-                } else {
-                  setSplitWith([
-                    ...splitWith,
-                    { id: selectedMember.id, name: selectedMember.name },
-                  ]);
-                }
-              }
-            }}
-            disabled={!group}
-          >
-            <SelectTrigger id="splitWith" className="w-full">
-              <SelectValue placeholder="Select members to split with" />
+      {/* Group Select */}
+      <div>
+        <Label
+          htmlFor="group"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Group
+        </Label>
+        {organizations.length > 0 ? (
+          <Select onValueChange={handleGroupChange} value={group} required>
+            <SelectTrigger id="group" className="w-full focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+              <SelectValue placeholder="Select a group" />
             </SelectTrigger>
             <SelectContent>
-              {members.map((member) => (
-                <SelectItem key={member.id} value={member.id}>
-                  {member.name}
+              {organizations.map((org) => (
+                <SelectItem key={org.id} value={org.id}>
+                  {org.name}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-        </div>
+        ) : (
+          <p className="text-sm text-gray-500">
+            No groups available. Please create or join a group first.
+          </p>
+        )}
+      </div>
 
-        <Button type="submit" className="w-full">
-          Save Expense
-        </Button>
-      </form>
-    </div>
+      {/* Split Percentage */}
+      <div>
+        <Label
+          htmlFor="splitPercentage"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Split Percentage
+        </Label>
+        <Input
+          id="splitPercentage"
+          type="number"
+          placeholder="Enter percentage to split"
+          value={splitPercentage}
+          onChange={(e) => setSplitPercentage(e.target.value)}
+          className="w-full focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        />
+      </div>
+
+      {/* Split With */}
+      <div>
+        <Label
+          htmlFor="splitWith"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Split with
+        </Label>
+        <Select
+          onValueChange={(value) => {
+            const selectedMember = members.find(
+              (member) => member.id === value
+            );
+            if (selectedMember) {
+              if (
+                splitWith.some((member) => member.id === selectedMember.id)
+              ) {
+                setSplitWith(
+                  splitWith.filter(
+                    (member) => member.id !== selectedMember.id
+                  )
+                );
+              } else {
+                setSplitWith([
+                  ...splitWith,
+                  { id: selectedMember.id, name: selectedMember.name },
+                ]);
+              }
+            }
+          }}
+          disabled={!group}
+        >
+          <SelectTrigger id="splitWith" className="w-full focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+            <SelectValue placeholder="Select members to split with" />
+          </SelectTrigger>
+          <SelectContent>
+            {members.map((member) => (
+              <SelectItem key={member.id} value={member.id}>
+                {member.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        {/* Display selected users */}
+        {splitWith.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {splitWith.map((member) => (
+              <span
+                key={member.id}
+                className="bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full"
+              >
+                {member.name}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Submit Button */}
+      <Button
+        type="submit"
+        className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+      >
+        Save Expense
+      </Button>
+    </form>
+  </div>
+</div>
+
   );
 }

@@ -8,48 +8,69 @@ import { motion } from 'framer-motion';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen text-gray-900 bg-gray-50">
+    <div className="min-h-screen bg-white text-gray-800 font-sans">
       {/* Hero Section */}
       <Banner />
 
       {/* Features Section */}
-      <div className="container mx-auto py-16 sm:px-6 lg:px-8 lg:py-24 text-center">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h2
-          className="text-4xl font-extrabold text-gray-900 mb-12"
+          className="text-4xl sm:text-5xl font-bold text-center text-gray-900 mb-16 leading-tight"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
         >
-          Why use <span className="text-purple-600">Splittr?</span>
+          Designed to make <span className="text-purple-600">splitting expenses</span> effortless
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <motion.div whileHover={{ scale: 1.05 }}>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
             <FeatureCard
               Icon={Users}
-              title="Group Expense Tracking"
-              description="Easily add group members to your expense. All the expenses are added up and divided by the number of people in the group."
+              title="Track Group Expenses"
+              description="Add group members and automatically split expenses. Perfect for trips, roommates, and shared activities."
             />
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }}>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
             <FeatureCard
               Icon={UserPlus}
-              title="Individual Expense Addition"
-              description="Add expenses to your group. You can add your expenses, and they will be automatically added to your group's expenses."
+              title="Add Personal Contributions"
+              description="Add your individual expenses and keep everything balanced within the group context — seamlessly."
             />
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }}>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
             <FeatureCard
               Icon={LineChart}
-              title="Expense Viewing"
-              description="View all your expenses in one place. You can see how much you've spent and how much you owe."
+              title="Visualize Spending"
+              description="See clear overviews of how much you've spent, what others owe you, and your total balance — all in real-time."
             />
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="container border-t-2 mx-auto px-4 py-8 sm:px-6 lg:px-8 text-center text-sm text-gray-500 bg-gray-100">
-        <p className="text-md">By using <span className="font-bold text-purple-600">Splittr</span>, you agree to our <a href="#" className="text-purple-600 hover:underline">Terms of Service</a> and <a href="#" className="text-purple-600 hover:underline">Privacy Policy</a>.</p>
+      <footer className="border-t bg-gray-50 py-10 text-center text-sm text-gray-600">
+        <p>
+          © {new Date().getFullYear()} <span className="font-semibold text-purple-600">Splittr</span>. All rights reserved.
+        </p>
+        <p className="mt-2">
+          <a href="#" className="hover:underline text-purple-500">
+            Terms of Service
+          </a>{' '}
+          |{' '}
+          <a href="#" className="hover:underline text-purple-500">
+            Privacy Policy
+          </a>
+        </p>
       </footer>
     </div>
   );
