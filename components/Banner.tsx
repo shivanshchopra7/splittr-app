@@ -50,12 +50,13 @@ export default function Banner() {
         >
           Split Expenses.<br /> Stay Friends. 💸
         </motion.h1>
-        <motion.p
-          className="text-lg sm:text-xl mb-12 opacity-90 leading-relaxed max-w-3xl mx-auto"
-          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-        >
-          Whether it's a group trip, dinner, or household rent — Splittr helps you keep things fair and simple with real-time tracking, smart summaries, and seamless settlements.
-        </motion.p>
+       <motion.p
+  className="text-lg sm:text-xl mb-12 opacity-90 leading-relaxed max-w-3xl mx-auto"
+  variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+>
+  Whether it&rsquo;s a group trip, dinner, or household rent — Splittr helps you keep things fair and simple with real-time tracking, smart summaries, and seamless settlements.
+</motion.p>
+
 
         <Link href="/group" passHref>
           <motion.div
